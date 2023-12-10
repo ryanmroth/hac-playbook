@@ -32,4 +32,4 @@ Everything can be customised by editing config.yml.
 
 ## Author
 
-This project was created by Ryan Roth (originally inspired by [geerlingguy/mac-dev-playbook]https://github.com/geerlingguy/mac-dev-playbook).
+This project was created by Ryan Roth (originally inspired by [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook)).
