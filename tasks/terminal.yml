@@ -1,0 +1,27 @@
+---
+# Custom Terminal theme.
+- name: Get current Terminal profile.
+  command: defaults read com.apple.terminal 'Default Window Settings'
+  register: terminal_theme
+  changed_when: false
+  check_mode: false
+
+- name: Ensure custom Terminal profile is added.
+  copy:
+    src: files/terminal/Dracula.terminal
+    dest: /tmp/Dracula.terminal
+  changed_when: false
+  when: "'Dracula' not in terminal_theme.stdout"
+
+- name: Ensure custom Terminal profile is added.
+  command: open /tmp/Dracula.terminal
+  changed_when: false
+  when: "'Dracula' not in terminal_theme.stdout"
+
+- name: Ensure custom Terminal profile is set as default.
+  command: "{{ item }}"
+  with_items:
+    - defaults write com.apple.terminal 'Default Window Settings' -string Dracula
+    - defaults write com.apple.terminal 'Startup Window Settings' -string Dracula
+  changed_when: false
+  when: "'Dracula' not in terminal_theme.stdout"

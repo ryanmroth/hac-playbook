@@ -1,0 +1,195 @@
+---
+downloads: ~/.ansible-downloads/
+
+# Download and install dotfiles
+  configure_dotfiles: true
+  
+  dotfiles_repo: https://github.com/ryanmroth/dotfiles.git
+  dotfiles_repo_accept_hostkey: true
+  dotfiles_repo_local_destination: ~/Development/dotfiles
+  dotfiles_files:
+    - .asdf
+    - .curlrc
+    - .editorconfig
+    - .ffufrc
+    - .gemrc
+    - .gitattributes
+    - .hushlogin
+    - .macos
+    - .wgetrc
+    - .zshrc
+
+# Install Terminal profile
+  configure_terminal: true
+
+# Deploy important Mac defaults
+  configure_macos: true
+  macos_config_script: "~/.macos --no-restart"
+
+# Add and remove items from the Dock
+  configure_dock: true
+  dockitems_remove: []
+    - Launchpad
+    - Safari
+    - Mail
+    - Contacts
+    - Calendar
+    - Notes
+    - Reminders
+    - Maps
+    - Messages
+    - Facetime
+    - TV
+    - Photos
+    - Music
+    - Podcasts
+    - Siri
+    - Numbers
+    - Keynote
+    - News
+    - 'App Store'
+  dockitems_persist: []
+    - name: "Firefox"
+      path: "/Applications/Firefox.app/"
+      pos: 2
+    - name: "Visual Studio Code"
+      path: "/Applications/Visual Studio Code.app/"
+      pos: 3
+    - name: "Sublime Text"
+      path: "/Applications/Sublime Text.app/"
+      pos: 4
+    - name: "Sublime Text"
+      path: "/Applications/Sublime Text.app/"
+      pos: 4
+    - name: "Microsoft Teams"
+      path: "/Applications/Microsoft Teams.app/"
+      pos: 5
+    - name: "iTerm"
+      path: "/Applications/iTerm.app/"
+      pos: 6
+    - name: "System Settings"
+      path: "/Applications/System Settings.app/"
+      pos: 7
+
+# Brew package installation
+  homebrew_installed_packages:
+    - asdf
+    - autoconf
+    - azure-cli
+    - binwalk
+    - dalfox
+    - dex2jar
+    - dnstwist
+    - dnsx
+    - exiftool
+    - exploitdb
+    - ffuf
+    - gh
+    - git
+    - go
+    - gobuster
+    - gpg
+    - hashcat
+    - httpx
+    - hydra
+    - ike-scan
+    - john-jumbo
+    - jython
+    - karabiner-elements
+    - mas
+    - masscan
+    - name-that-hash
+    - neo4j
+    - netcat
+    - nikto
+    - nmap
+    - node
+    - nuclei
+    - openssl
+    - php
+    - pinentry
+    - pinentry-mac
+    - proxychains-ng
+    - recon-ng
+    - rustscan
+    - search-that-hash
+    - sslscan
+    - subfinder
+    - sqlmap
+    - sqlite
+    - telnet
+    - temurin
+    - terraform
+    - virustotal-cli
+    - volatility
+    - wget
+    - yara
+    - ykman
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
+
+  homebrew_taps:
+    - homebrew/core
+    - homebrew/cask
+    - homebrew/cask-fonts
+
+  homebrew_cask_appdir: /Applications
+  homebrew_cask_apps:
+    - blockblock
+    - bloodhound
+    - cyberduck
+    - discord
+    - docker
+    - firefox
+    - font-hack
+    - ghidra
+    - github
+    - google-chrome
+    - imhex
+    - iterm2
+    - knockknock
+    - lulu
+    - microsoft-office
+    - microsoft-teams
+    - monitorcontrol
+    - owasp-zap
+    - powershell
+    - sequel-ace
+    - sublime-text
+    - tor-browser
+    - visual-studio-code
+    - vmware-fusion
+    - wireshark
+    - zoom
+
+  # See `geerlingguy.mas` role documentation for usage instructions.
+    mas_installed_apps: []
+    mas_email: ""
+    mas_password: ""      
+
+# Configure Sublime Text preferences and plugins
+  configure_sublime: true
+  sublime_base_path: "~/Library/Application Support/Sublime Text 3"
+  sublime_config_path: "Packages/User"
+  sublime_package_control:
+    - "Alignment"
+    - "BracketHighlighter"
+    - "Color Highlight"
+    - "DocBlockr"
+    - "MarkdownEditing"
+    - "MarkdownPreview"
+    - "Package Control"
+    - "FileDiffs"
+    - "Pretty JSON"
+    - "SublimeLinter"
+    - "WordCount"
+    - "PlainNotes"
+
+# Install Oh My Zsh and add custom files
+  configure_ohmyzsh: true
+
+# Install asdf plugins and setup defaults
+  configure_asdf: true
+
+# Copy custom karabiner elements configurations
+  configure_karabiner: true

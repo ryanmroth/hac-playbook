@@ -1,0 +1,4 @@
+---
+- name: Run .macos configuration script.
+  command: "{{ macos_config_script }}"
+  changed_when: false

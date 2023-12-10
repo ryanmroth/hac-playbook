@@ -1,0 +1,13 @@
+---
+- name: "Install asdf plugins"
+  shell: |
+    asdf plugin-add {{ item }} || exit 0
+  with_items:
+    - python
+
+- name: "Install Default Python"
+  shell: |
+    asdf install python 3.12.1
+    asdf global python 3.12.1
+    pip3 install ansible
+    asdf reshim python

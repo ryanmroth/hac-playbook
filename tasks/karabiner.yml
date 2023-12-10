@@ -1,0 +1,6 @@
+---
+- name: Copy karabiner files
+  copy:
+    src: files/karabiner/
+    dest: /Users/{{ lookup('env', 'USER') }}/.config/karabiner/
+    directory_mode:
