@@ -1,4 +1,4 @@
- Hacintosh Ansible Playbook
+# Hacintosh Ansible Playbook
 
 This playbook installs and configures most of the software I use on my Mac for penetration testing and other cybersecurity functions.
 
