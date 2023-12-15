@@ -1,14 +1,11 @@
 ---
-- name: Install Oh My ZSH
+- name: Install Oh My ZSH.
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   args:
     creates: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh"
 
-- name: Copy custom files
+- name: Copy custom Oh My ZSH files.
   copy:
-    src: "files/ohmyzsh/{{ item }}"
-    dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/{{ item }}"
-  loop:
-    - "aliases.zsh"
-    - "exports.zsh"
-    - "functions.zsh"
+    src: "{{ item }}"
+    dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/"
+  with_fileglob: "files/ohmyzsh/*"

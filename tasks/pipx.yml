@@ -1,0 +1,6 @@
+---
+# Install pipx via pip as the Homebrew version doesn't play nice with asdf.
+- name: Install pipx.
+  shell: |
+    python -m pip install --user pipx
+    pipx completions

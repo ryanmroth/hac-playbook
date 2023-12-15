@@ -260,6 +260,10 @@
         docker run --rm -it -p80:3000 -v "${PWD}:/data" f1rstm4tter/postfiledump
     }
 
+    # MobSF Docker image
+    function mobsf() {
+      docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest
+    }
 #  --------------------------------------------------
 #   7.  Misc
 #  --------------------------------------------------

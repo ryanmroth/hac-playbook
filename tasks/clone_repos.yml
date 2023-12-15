@@ -1,0 +1,9 @@
+---
+- name: Clone defined Github repos
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    version: "{{ item.branch }}"
+    force: yes
+    depth: 1
+  loop: "{{ repos }}"

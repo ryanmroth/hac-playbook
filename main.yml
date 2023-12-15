@@ -26,15 +26,24 @@
     - import_tasks: tasks/terminal.yml
       when: configure_terminal
       tags: ["terminal"]
+    - import_tasks: tasks/macos.yml
+      when: configure_macos
+      tags: ["macos"]
     - import_tasks: tasks/sublime-text.yml
       when: configure_sublime
       tags: ["sublime-text"]
     - import_tasks: tasks/asdf.yml
       when: configure_asdf
       tags: ["asdf"]
+    - import_tasks: tasks/pipx.yml
+      when: configure_pipx
+      tags: ["pipx"]
     - import_tasks: tasks/karabiner.yml
       when: configure_karabiner
       tags: ["karabiner"]
-    - import_tasks: tasks/macos.yml
-      when: configure_macos
-      tags: ["macos"]
+    - import_tasks: tasks/wireshark.yml
+      when: configure_wireshark
+      tags: ["wireshark"]
+    - import_tasks: tasks/global/clone_repos.yml
+      when: clone_repos
+      tags: ["clone_repos"]

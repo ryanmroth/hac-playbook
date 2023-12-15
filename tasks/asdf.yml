@@ -1,13 +1,34 @@
 ---
 - name: "Install asdf plugins"
   shell: |
-    asdf plugin-add {{ item }} || exit 0
+    asdf plugin add {{ item }} || exit 0
   with_items:
     - python
+    - golang
+    - nodejs
+    - php
 
 - name: "Install Default Python"
   shell: |
-    asdf install python 3.12.1
-    asdf global python 3.12.1
+    asdf install python latest
+    asdf global python latest
     pip3 install ansible
     asdf reshim python
+
+- name: "Install Default Go"
+  shell: |
+    asdf install golang latest
+    asdf global golang latest
+    asdf reshim golang
+
+- name: "Install Default Go"
+  shell: |
+    asdf install nodejs latest
+    asdf global nodejs latest
+    asdf reshim nodejs
+
+- name: "Install Default Php"
+  shell: |
+    asdf install php latest
+    asdf global php latest
+    asdf reshim php

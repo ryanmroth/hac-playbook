@@ -48,6 +48,7 @@ downloads: ~/.ansible-downloads/
     - Keynote
     - News
     - 'App Store'
+    - 'System Settings'
   dockitems_persist: []
     - name: "Firefox"
       path: "/Applications/Firefox.app/"
@@ -55,24 +56,19 @@ downloads: ~/.ansible-downloads/
     - name: "Visual Studio Code"
       path: "/Applications/Visual Studio Code.app/"
       pos: 3
-    - name: "Sublime Text"
-      path: "/Applications/Sublime Text.app/"
-      pos: 4
-    - name: "Sublime Text"
-      path: "/Applications/Sublime Text.app/"
-      pos: 4
     - name: "Microsoft Teams"
       path: "/Applications/Microsoft Teams.app/"
-      pos: 5
+      pos: 4
     - name: "iTerm"
       path: "/Applications/iTerm.app/"
-      pos: 6
+      pos: 5
     - name: "System Settings"
       path: "/Applications/System Settings.app/"
       pos: 7
 
 # Brew package installation
   homebrew_installed_packages:
+    - apktool
     - asdf
     - autoconf
     - azure-cli
@@ -86,13 +82,13 @@ downloads: ~/.ansible-downloads/
     - ffuf
     - gh
     - git
-    - go
     - gobuster
     - gpg
     - hashcat
     - httpx
     - hydra
     - ike-scan
+    - jd-gui
     - john-jumbo
     - jython
     - karabiner-elements
@@ -101,18 +97,19 @@ downloads: ~/.ansible-downloads/
     - name-that-hash
     - neo4j
     - netcat
+    - ngrok
     - nikto
     - nmap
-    - node
     - nuclei
     - openssl
-    - php
     - pinentry
     - pinentry-mac
     - proxychains-ng
+    - radare2
     - recon-ng
     - rustscan
     - search-that-hash
+    - shodan
     - sslscan
     - subfinder
     - sqlmap
@@ -150,12 +147,13 @@ downloads: ~/.ansible-downloads/
     - knockknock
     - lulu
     - microsoft-office
+    - microsoft-remote-desktop
     - microsoft-teams
     - monitorcontrol
     - owasp-zap
+    - postman
     - powershell
     - sequel-ace
-    - sublime-text
     - tor-browser
     - visual-studio-code
     - vmware-fusion
@@ -163,9 +161,9 @@ downloads: ~/.ansible-downloads/
     - zoom
 
   # See `geerlingguy.mas` role documentation for usage instructions.
-    mas_installed_apps: []
-    mas_email: ""
-    mas_password: ""      
+    mas_installed_apps:
+      - { id: 937984704, name: "Amphetamine" }
+      - { id: 441258766, name: "Magnet" }
 
 # Configure Sublime Text preferences and plugins
   configure_sublime: true
@@ -191,5 +189,38 @@ downloads: ~/.ansible-downloads/
 # Install asdf plugins and setup defaults
   configure_asdf: true
 
-# Copy custom karabiner elements configurations
+# Install and setup pipx
+  configure_pipx: true
+
+# Copy custom Karabiner Elements configurations
   configure_karabiner: true
+
+# Copy custom Wireshark profiles
+  configure_wireshark: true
+
+# Clone Github tool repos
+  clone_repos: true
+  repos:
+    - repo: https://github.com/ryanmroth/git-dumper.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/Git-Dumper
+      branch: master
+    - repo: https://github.com/dafthack/GraphRunner.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/GraphRunner
+      branch: main
+    - repo: https://github.com/danielmiessler/SecLists.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/SecLists
+      branch: master
+    - repo: https://github.com/iamj0ker/bypass-403.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/Bypass-403
+      branch: main
+    - repo: https://github.com/Dionach/CMSmap
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/CMSmap
+      branch: master
+    - repo: https://github.com/dafthack/MFASweep.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/MFASweep
+      branch: master
+    - repo: https://github.com/WesSec/VelociDeploy-o-Matic.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/VelociDeploy
+      branch: novpn
+    - repo: https://github.com/initstring/cloud_enum.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/Cloud_Enum

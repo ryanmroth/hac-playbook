@@ -1,0 +1,6 @@
+---
+- name: Copy custom Wireshark profiles
+  copy:
+    src: files/wireshark/
+    dest: /Users/{{ lookup('env', 'USER') }}/.config/wireshark/profiles/
+    directory_mode:

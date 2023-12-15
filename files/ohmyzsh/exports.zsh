@@ -10,6 +10,7 @@
 #  5.  Python
 #  6.  Homebrew
 #  7.  Paths
+#  8.  Manpager
 #  ---------------------------------------------------------------------------
 
 #  --------------------------------------------------
@@ -22,7 +23,7 @@
     export RPS1='%F{9}%(?..%{%}%? ↵%{%})$(virtualenv_prompt_info) %F{8}%{%}%n@%m%{%}'
 
 #  --------------------------------------------------
-#   3.  Language & Encoding
+#   2.  Language & Encoding
 #  --------------------------------------------------
 
     # Prefer US English and use UTF-8
@@ -30,18 +31,18 @@
     export LC_ALL='en_US.UTF-8';
 
 #  --------------------------------------------------
-#   4. Editor
+#   3. Editor
 #  --------------------------------------------------
 
     # Preferred editor for local and remote sessions
     if [[ -n $SSH_CONNECTION ]]; then
         export EDITOR='nano'
     else
-        export EDITOR='subl'
+        export EDITOR='code'
     fi
 
 #  --------------------------------------------------
-#   5.  GPG
+#   4.  GPG
 #  --------------------------------------------------
 
     # GPG Agent and Authentication configuration for
@@ -53,7 +54,7 @@
     gpg-connect-agent updatestartuptty /bye
 
 #  --------------------------------------------------
-#   6.  Python
+#   5.  Python
 #  --------------------------------------------------
 
     # Make Python use UTF-8 encoding for output
@@ -61,7 +62,7 @@
     export PYTHONIOENCODING='UTF-8';
  
 #  --------------------------------------------------
-#   7. Homebrew
+#   6. Homebrew
 #  --------------------------------------------------
 
     # Add Homebrew Github API
@@ -70,7 +71,13 @@
     export HOMEBREW_AUTO_UPDATE_SECS=604800
 
 #  --------------------------------------------------
-#   8. Paths
+#   7. Paths
 #  --------------------------------------------------
     # Custom $PATH with extra locations.
-    export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+    export PATH=$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:/usr/local/git/bin:$HOME/.local/bin:$PATH
+
+#  --------------------------------------------------
+#   8. Manpage
+#  --------------------------------------------------
+    # Don’t clear the screen after quitting a manual page.
+    export MANPAGER='less -X';
