@@ -4,11 +4,11 @@
 #  ---------------------------------------------------------------------------
 #  Sections:
 #  1.  Make Terminal Better (Remapping defaults and adding functionality)
-#  2.  File & Folder management
-#  3.  Process Management
-#  4.  Searching
-#  5.  Networking, Domain, Etc.
-#  6.  Docker
+#  2.  Process Management
+#  3.  Searching
+#  4.  Networking, Domain, Etc.
+#  5.  Docker
+#  6.  Encoding
 #  7.  Misc
 #  ---------------------------------------------------------------------------
 
@@ -47,33 +47,7 @@
     }
 
 #  --------------------------------------------------
-#   2.  File & Folder Management
-#  --------------------------------------------------
-
-    # Extract most known archives with one command
-    function extract () {
-      if [ -f $1 ] ; then
-        case $1 in
-          *.tar.bz2)   tar xjf $1     ;;
-          *.tar.gz)    tar xzf $1     ;;
-          *.bz2)       bunzip2 $1     ;;
-          *.rar)       unrar e $1     ;;
-          *.gz)        gunzip $1      ;;
-          *.tar)       tar xf $1      ;;
-          *.tbz2)      tar xjf $1     ;;
-          *.tgz)       tar xzf $1     ;;
-          *.zip)       unzip $1       ;;
-          *.Z)         uncompress $1  ;;
-          *.7z)        7z x $1        ;;
-          *)     echo "'$1' cannot be extracted via extract()" ;;
-            esac
-      else
-        echo "'$1' is not a valid file"
-      fi
-    }
-
-#  --------------------------------------------------
-#   3.  Process Management
+#   2.  Process Management
 #  --------------------------------------------------
  
     # List processes owned by my user
@@ -90,7 +64,7 @@
     }
 
 #  --------------------------------------------------
-#   4.  Searching
+#   3.  Searching
 #  --------------------------------------------------
 
     # Find file under the current directory
@@ -114,7 +88,7 @@
     }
 
 #  --------------------------------------------------
-#   5.  Networking, Domain, Etc.
+#   4.  Networking, Domain, Etc.
 #  --------------------------------------------------
 #
     # Unshorten link
@@ -179,7 +153,7 @@
     }
 
 #  --------------------------------------------------
-#   6.  Docker
+#   5.  Docker
 #  --------------------------------------------------
 
     # Drop into an interactive shell with bash
@@ -264,6 +238,36 @@
     function mobsf() {
       docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest
     }
+
+#  --------------------------------------------------
+#   6.  Encoding
+#  --------------------------------------------------
+    
+    encode64() {
+      if [[ $# -eq 0 ]]; then
+        cat | base64
+      else
+        printf '%s' $1 | base64
+      fi
+    }
+
+    encodefile64() {
+      if [[ $# -eq 0 ]]; then
+        echo "You must provide a filename"
+      else
+        base64 -i $1 -o $1.txt
+        echo "${1}'s content encoded in base64 and saved as ${1}.txt"
+      fi
+    }
+
+    decode64() {
+      if [[ $# -eq 0 ]]; then
+        cat | base64 --decode
+      else
+        printf '%s' $1 | base64 --decode
+      fi
+    }
+
 #  --------------------------------------------------
 #   7.  Misc
 #  --------------------------------------------------

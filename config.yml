@@ -8,7 +8,7 @@ downloads: ~/.ansible-downloads/
   dotfiles_repo_accept_hostkey: true
   dotfiles_repo_local_destination: ~/Development/dotfiles
   dotfiles_files:
-    - .asdf
+    - .asdfrc
     - .curlrc
     - .editorconfig
     - .ffufrc
@@ -123,6 +123,7 @@ downloads: ~/.ansible-downloads/
     - yara
     - ykman
     - zsh-autosuggestions
+    - zsh-history-substring-search
     - zsh-syntax-highlighting
 
   homebrew_taps:
@@ -150,6 +151,7 @@ downloads: ~/.ansible-downloads/
     - microsoft-remote-desktop
     - microsoft-teams
     - monitorcontrol
+    - onedrive
     - owasp-zap
     - postman
     - powershell
@@ -213,9 +215,6 @@ downloads: ~/.ansible-downloads/
     - repo: https://github.com/iamj0ker/bypass-403.git
       dest: /Users/{{ lookup('env', 'USER') }}/Tools/Bypass-403
       branch: main
-    - repo: https://github.com/Dionach/CMSmap
-      dest: /Users/{{ lookup('env', 'USER') }}/Tools/CMSmap
-      branch: master
     - repo: https://github.com/dafthack/MFASweep.git
       dest: /Users/{{ lookup('env', 'USER') }}/Tools/MFASweep
       branch: master
@@ -224,3 +223,19 @@ downloads: ~/.ansible-downloads/
       branch: novpn
     - repo: https://github.com/initstring/cloud_enum.git
       dest: /Users/{{ lookup('env', 'USER') }}/Tools/Cloud_Enum
+      branch: master
+    - repo: https://github.com/invictus-ir/Microsoft-Extractor-Suite.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/Microsoft-Extractor-Suite
+      branch: main
+    - repo: https://github.com/vectra-ai-research/MAAD-AF.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/MAAD
+      branch: main
+    - repo: https://github.com/praetorian-inc/noseyparker.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/noseyparker
+      branch: main
+    - repo: https://github.com/cisagov/ScubaGear.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/ScubaGear
+      branch: main
+    - repo: https://github.com/nccgroup/ScoutSuite.git
+      dest: /Users/{{ lookup('env', 'USER') }}/Tools/ScoutSuite
+      branch: master

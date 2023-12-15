@@ -12,6 +12,7 @@
 #  6.  System Operations & Information
 #  7.  Git
 #  8.  GPG
+#  9.  Encoding
 #  ---------------------------------------------------------------------------
 
 #  --------------------------------------------------
@@ -35,26 +36,33 @@
     
     # Directories
     # ---------------
-    alias ~="cd ~"                      # Go back to home
-    alias .="cd .."                     # Go back 1 directory level
-    alias ..="cd ../.."                 # Go back 2 directory levels
-    alias ...="cd ../../.."             # Go back 3 directory levels
-    alias ....="cd ../../../.."         # Go back 4 directory levels
-    alias .....="cd ../../../../.."     # Go back 5 directory levels
+    alias ~='cd ~'                      # Go back to home
+    alias .='cd ..'                    # Go back 1 directory level
+    alias ..='cd ../..'                 # Go back 2 directory levels
+    alias ...='cd ../../..'             # Go back 3 directory levels
+    alias ....='cd ../../../..'         # Go back 4 directory levels
+    alias .....='cd ../../../../..'     # Go back 5 directory levels
       # OR #
-    alias .1="cd .."                    # Go back 1 directory level
-    alias .2="cd ../.."                 # Go back 2 directory levels
-    alias .3="cd ../../.."              # Go back 3 directory levels
-    alias .4="cd ../../../.."           # Go back 4 directory levels
-    alias .5="cd ../../../../.."        # Go back 5 directory levels
+    alias .1='cd ..'                    # Go back 1 directory level
+    alias .2='cd ../..'                 # Go back 2 directory levels
+    alias .3='cd ../../..'              # Go back 3 directory levels
+    alias .4='cd ../../../..'           # Go back 4 directory levels
+    alias .5='cd ../../../../..'        # Go back 5 directory levels
 
     alias back='cd $OLDPWD'             # Go back to previous working directory
+
+    # History
+    # --
+    alias h='history'
+    alias hl='history | less'
+    alias hs='history | grep'
+    alias hsi='history | grep -i'
 
 #  --------------------------------------------------
 #   2.  File & Folder Management
 #  --------------------------------------------------
 
-    alias filesize="stat -f \"%z bytes\""     # Get file size
+    alias filesize='stat -f \"%z bytes\"'     # Get file size
     alias numFiles='echo $(ls -1 | wc -l)'    # Count of non-hidden files in current dir
     alias make1mb='mkfile 1m ./1MB.dat'       # Creates a file of 1mb size (all zeros)
     alias make5mb='mkfile 5m ./5MB.dat'       # Creates a file of 5mb size (all zeros)
@@ -75,14 +83,14 @@
     alias topForever='top -l 9999999 -s 10 -o cpu'
 
     # Recommended 'top' invocation to minimize resources
-    alias ttop="top -R -F -s 10 -o rsize"
+    alias ttop='top -R -F -s 10 -o rsize'
 
 #  --------------------------------------------------
 #   4.  Searching
 #  --------------------------------------------------
     
     # Quickly search for file
-    alias qfind="find . -name "
+    alias qfind='find . -name '
     
 #  --------------------------------------------------
 #   5.  Networking
@@ -97,20 +105,20 @@
     alias ipInfo0='ipconfig getpacket en0'                          # Get info on connections for en0
     alias ipInfo1='ipconfig getpacket en1'                          # Get info on connections for en1
     alias openPorts='sudo lsof -i | grep LISTEN'                    # All listening connections
-    alias ping="ping -c 5"                                          # Stop after 5 pings
+    alias ping='ping -c 5'                                          # Stop after 5 pings
 
 #  --------------------------------------------------
 #   6.  System Operations & Information
 #  --------------------------------------------------
 
     # Update system
-    alias sysupdate="brew update && brew upgrade && brew upgrade --cask && brew cleanup -a && brew doctor && brew missing"
+    alias sysupdate='brew update && brew upgrade && brew upgrade --cask && brew cleanup -a && brew doctor && brew missing'
 
     # For use when booted into single-user
-    alias mountReadWrite="/sbin/mount -uw /"
+    alias mountReadWrite='/sbin/mount -uw /'
 
     # Recursively delete .DS_Store files
-    alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
+    alias cleanupDS='find . -type f -name "*.DS_Store" -ls -delete'
 
     # Show hidden files in Finder
     alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
@@ -119,7 +127,7 @@
     alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
 
     # Clean up LaunchServices to remove duplicates in the "Open With" menu
-    alias cleanupLS="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+    alias cleanupLS='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
   
 #  --------------------------------------------------
 #   7.  Git
@@ -133,4 +141,13 @@
 #  --------------------------------------------------
     
     # Reset GPG to support SSH authentication via Yubikey
-    alias gpgreset="gpg-connect-agent killagent /bye; gpg-connect-agent updatestartuptty /bye; gpg-connect-agent /bye"
+    alias gpgreset='gpg-connect-agent killagent /bye; gpg-connect-agent updatestartuptty /bye; gpg-connect-agent /bye'
+
+#  --------------------------------------------------
+#   9.  Encoding
+#  --------------------------------------------------
+
+    # Aliases to base64 encoding and decoding functions
+    alias e64='encode64'
+    alias ef64='encodefile64'
+    alias d64='decode64'
