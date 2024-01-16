@@ -96,8 +96,8 @@
 #   5.  Networking
 #  --------------------------------------------------
     
-    alias myip='dig +short myip.opendns.com @resolver1.opendns.com' # Public facing IP Address
-    alias netCons='lsof -i'                                           # Show all open TCP/IP sockets
+    alias myip='curl icanhazip.com'                                 # Public facing IP Address
+    alias netCons='lsof -i'                                         # Show all open TCP/IP sockets
     alias flushDNS='dscacheutil -flushcache'                        # Flush out the DNS Cache
     alias lsock='sudo /usr/sbin/lsof -i -P'                         # Display open sockets
     alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'               # Display only open UDP sockets
